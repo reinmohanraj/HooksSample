@@ -1,0 +1,11 @@
+.MuiTableRow-root.Mui-selected{
+    background-color: blue !important;
+}
+
+.MuiTableRow-root.Mui-selected, .MuiTableRow-root.Mui-selected:hover{
+    background-color: aquamarine !important;
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked{
+    color: black !important;
+}
