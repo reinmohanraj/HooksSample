@@ -1,0 +1,80 @@
+.jik_Header{
+    background: #fafbfc;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,.03), 0 0.9375rem 1.40625rem rgba(4,9,20,.03),
+     0 0.25rem 0.53125rem rgba(4,9,20,.05), 0 0.125rem 0.1875rem rgba(4,9,20,.03);
+}
+.Jik_HeaderContent{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex: 1;
+    padding: 0 1.5rem;
+    height: 60px;
+}
+.Jik_HeaderContentLeft{
+    display: flex;
+    align-items: center;
+}
+.Jik_HeaderContentRight{
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+}
+.Jik_Header_logo{
+    width: 10rem;
+    
+    margin-left: 2rem;
+}
+.Jik_Header_searchIcon{
+    position: absolute;
+    left: 38rem;
+    top: 1.2rem;
+    color: #e9e9e9;
+}
+.Jik_Header_searchtext{
+    border: 1px solid #e9e9e9;
+    border-radius: 20px;
+    padding: 6px 15px;
+    width: 20rem;
+    margin-left:5rem;
+}
+
+.Jik_HeaderContentRightLogin{
+    display: flex;
+    flex: 1 1;
+    position: relative;
+    align-items: center;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-right: 1px solid #e9e9e9;
+    border-left: 1px solid #e9e9e9;
+}
+.Jikan_headerdropdown{
+    background: transparent;
+    border: none;
+    color: #000;
+}
+.Jik_HeaderContentRightLogin a{
+    color: #000;
+    font-size: .8rem;
+}
+.Jik_HeaderContentRightLogin a:hover{
+    text-decoration: none;
+}
+.Jik_HeaderContentRightLogin .user_role{
+    opacity: .3;
+}
+.Jikan_headerdropdown:hover{
+background: none;
+color: #000;
+}
+.Jikan_headerdropdown:focus{
+    background-color: transparent !important;
+    color: #000 !important;
+    outline: none;
+    box-shadow: none !important;
+}
+
