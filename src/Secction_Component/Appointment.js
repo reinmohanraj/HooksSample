@@ -10,7 +10,7 @@ import EnhancedTable from "./Appointmentgridtable";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import Modalprocedure from "../main_component/Modalprocedure";
 
-const Appointment = () => {
+const Appointment = (props) => {
   const [modalposition, setModalposition] = useState({ });
 
 
@@ -41,8 +41,7 @@ const Appointment = () => {
   }
 
   return (
-    <Container className="container">
-      <div className="Appoint card">
+      <div className={`Appoint ${props.isOpen ? 'Sidenav-open': ''}`}>
         <Row className="Appoint-header">
           <Col xs="6" className="Appoint-header-left">
             <span>Parnassus Apheresis</span>
@@ -85,7 +84,6 @@ const Appointment = () => {
           />
         </Row>
       </div>
-    </Container>
   );
 };
 

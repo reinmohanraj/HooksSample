@@ -312,7 +312,7 @@ export default function EnhancedTable(props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <TableContainer>
+        <TableContainer className="table-responsive">
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"

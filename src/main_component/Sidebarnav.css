@@ -1,29 +1,28 @@
-.Jikan_SidebarNavOuter{
-    width: 14rem;
-    margin-top: 3.8rem;
-    border: 1px solid #e9e9e9;
-    height: calc(100vh - 91px);
-    overflow-y: auto;
-    box-shadow: 7px 0 60px rgba(0,0,0,.05);
+.Jikan_SidebarNavOuter {
+  position: fixed;
+  width: 14rem;
+  border: 1px solid #e9e9e9;
+  height: calc(100vh - 91px);
+  overflow-y: auto;
+  box-shadow: 7px 0 60px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+  background-color: white;
 }
-.Jikan_SidebarNavInner{
-    margin: 28px 10px;
-    list-style: none;
+.Jikan_SidebarNavInner {
+  margin: 28px 10px;
+  list-style: none;
 }
-.Jikan_SidebarNavInner ul{
-    list-style: none;
-    padding: 0px 15px;
-  
-
+.Jikan_SidebarNavInner ul {
+  list-style: none;
+  padding: 0px 15px;
 }
-.Jikan_SidebarNavInner ul li{
-    padding: 10px 0px;
-  
+.Jikan_SidebarNavInner ul li {
+  padding: 10px 0px;
 }
-.Jikan_SidebarNavInner ul li a{
-    color:#000;
+.Jikan_SidebarNavInner ul li a {
+  color: #000;
 }
-.Jikan_SidebarNavInner ul li a:hover{
-    color:#000;
-    text-decoration: none;
+.Jikan_SidebarNavInner ul li a:hover {
+  color: #000;
+  text-decoration: none;
 }

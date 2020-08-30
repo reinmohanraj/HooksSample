@@ -1,71 +1,81 @@
-.container {
-    margin-top: 75px;
+.Appoint {
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+  margin-left: 4.5rem;
+  margin-top: 1.2rem;
+  margin-right: 1.2rem;
+  width: 100%;
 }
 
-.Appoint{
-    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+.Sidenav-open {
+  margin-left: 15.5rem;
 }
 
-.Appoint-header{
-    padding: 5px 10px;
-    display: flex;
-    background-color: #f3f3f8;
-    margin: 0px !important;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+@media (max-width: 768px) {
+  .Sidenav-open {
+    margin-left: 4.5rem;
+  }
 }
 
-.Appoint-header-right{
-    text-align: end;
+.Appoint-header {
+  padding: 5px 10px;
+  display: flex;
+  background-color: #f3f3f8;
+  margin: 0px !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-.Appoint-header-right span{
-    /* float: right; */
-    line-height: 40px;
-    margin-right: 15px;
-    /* font-size: 10px; */
+.Appoint-header-right {
+  text-align: end;
+}
+
+.Appoint-header-right span {
+  /* float: right; */
+  line-height: 40px;
+  margin-right: 15px;
+  /* font-size: 10px; */
 }
 
 .Appoint-header-left span:first-child {
-    margin: 0px;
-    font-weight: 500;
-    line-height: 40px;
-    border-right: 2px solid black;
-    padding-right: 15px;
+  margin: 0px;
+  font-weight: 500;
+  line-height: 40px;
+  border-right: 2px solid black;
+  padding-right: 15px;
 }
 
 .Appoint-header-left span:nth-child(2) {
-    padding: 5px;
+  padding: 5px;
 }
 
-.Appoint-filter{
-    margin: 0px !important;
+.Appoint-filter {
+  margin: 0px !important;
 }
 
 .Appoint-filter .procedure-add-icon {
-    color: #05c1dd;
-    position: absolute;
-    top: -16px;
-    background-color: white;
-    left: -16px;
-    font-size: 30px;
-    border-radius: 20px;
-    cursor: pointer;
+  color: #05c1dd;
+  position: absolute;
+  top: -16px;
+  background-color: white;
+  left: -16px;
+  font-size: 30px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.filter-button{
-    background: none;
-    border: 2px dotted #e9e9e9;
-    border-radius: 20px;
-    padding: 5px 10px;
-    color: darkgrey;
-    margin: 8px 0;
+.filter-button {
+  background: none;
+  border: 2px dotted #e9e9e9;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: darkgrey;
+  margin: 8px 0;
 }
 
-.filter-button span{
-    padding-right: 5px;
+.filter-button span {
+  padding-right: 5px;
 }
 
-.Appoint-table{
-    margin: 0px !important;
+.Appoint-table {
+  margin: 0px !important;
 }
