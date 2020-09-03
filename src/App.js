@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Icon from '@material-ui/core/Icon';
 import Footer from './main_component/Footer';
 import Body from './main_component/Body';
+import Sampledata from './Secction_Component/sampledata';
 
 
 function App() {

@@ -3,16 +3,24 @@
   margin-left: 4.5rem;
   margin-top: 1.2rem;
   margin-right: 1.2rem;
-  width: 100%;
+  width: calc(100% - 5rem);
 }
 
 .Sidenav-open {
   margin-left: 15.5rem;
+  width: calc(100% - 16rem);
 }
 
 @media (max-width: 768px) {
   .Sidenav-open {
     margin-left: 4.5rem;
+    
+  }
+  
+}
+@media (max-width: 767px){
+  .Appoint-header-right{
+    text-align:left !important;
   }
 }
 

@@ -43,11 +43,11 @@ const Appointment = (props) => {
   return (
       <div className={`Appoint ${props.isOpen ? 'Sidenav-open': ''}`}>
         <Row className="Appoint-header">
-          <Col xs="6" className="Appoint-header-left">
+          <Col sm="12" md="7" className="Appoint-header-left">
             <span>Parnassus Apheresis</span>
             <span>{selectedappoinments}</span>
           </Col>
-          <Col xs="6" className="Appoint-header-right">
+          <Col sm="12" md="5" className="Appoint-header-right">
             <span>
               <SearchIcon />
             </span>

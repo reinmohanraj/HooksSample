@@ -12,107 +12,48 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
 import "./Appointmentgridtable.css";
+import data from "../json/table.json";
 
-function createData(
-  date,
-  start,
-  end,
-  name,
-  age,
-  mrn,
-  procedure,
-  location,
-  status,
-  notes
-) {
-  return {
-    date,
-    start,
-    end,
-    name,
-    age,
-    mrn,
-    procedure,
-    location,
-    status,
-    notes,
-  };
+console.log("rdata from json", data);
+
+const headCells = createHead(); 
+
+
+function createHead(){
+  // return { id: data.displayRows[0],numeric: false,disablePadding: true,label: data.displayRows[0],}
+  return data.displayRows.map((elem) => {
+    return { id: elem,numeric: false,disablePadding: true,label: elem,}
+  })
 }
 
-const rows = [
-  createData(
-    "Jun 18 2018",
-    "7:00 AM",
-    "8:00AM",
-    "Mohan",
-    18,
-    "12345",
-    "Plasma Exchange",
-    "Room006",
-    "Pending",
-    "hey"
-  ),
-  createData(
-    "Jun 18 2019",
-    "7:00 AM",
-    "8:00AM",
-    "Lav",
-    25,
-    "12345",
-    "Plasma Exchange",
-    "Room006",
-    "Pending",
-    "hey"
-  ),
-  createData(
-    "Jun 18 2019",
-    "7:00 AM",
-    "8:00AM",
-    "Atchu",
-    18,
-    "12345",
-    "Plasma Exchange",
-    "Room006",
-    "Pending",
-    "hey"
-  ),
-  createData(
-    "Jun 18 2019",
-    "7:00 AM",
-    "8:00AM",
-    "Pavi",
-    23,
-    "12345",
-    "Plasma Exchange",
-    "Room006",
-    "Pending",
-    "hey"
-  ),
-  createData(
-    "Jun 18 2019",
-    "7:00 AM",
-    "8:00AM",
-    "Ananthu",
-    30,
-    "12345",
-    "Plasma Exchange",
-    "Room006",
-    "Pending",
-    "hey"
-  ),
-  createData(
-    "Jun 18 2019",
-    "7:00 AM",
-    "8:00AM",
-    "Indu",
-    40,
-    "12345",
-    "Plasma Exchange",
-    "Room006",
-    "Pending",
-    "hey"
-  ),
-];
+function createData(date,start,end,name,age,mrn,procedure,location,status,notes,) {
+  return {date,start,end,name,age,mrn,procedure,location,status,notes, };
+}
+
+function createData1() {
+  let dataRows = [];
+
+  for ( let i=0; i<data.row.length; i++){
+    let dataObj = {};
+    for (let j=0; j<data.displayRows.length; j++){
+      let key = data.displayRows[j];
+        Object.assign(dataObj, {[key]: data.row[i][key]})
+    }
+    dataRows.push(
+      dataObj
+    )
+  }
+
+  // const dataRows = data.row.map((elem) => {
+  //   return data.displayRows.map((key) => {
+  //     return {[key]: elem[key]};
+  //   })
+  // })
+  return dataRows;
+}
+createData1();
+
+const rows = createData1();
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -140,29 +81,6 @@ function stableSort(array, comparator) {
   });
   return stabilizedThis.map((el) => el[0]);
 }
-
-const headCells = [
-  {
-    id: "date",
-    numeric: false,
-    disablePadding: true,
-    label: "Date",
-  },
-  { id: "start", numeric: false, label: "Start" },
-  { id: "end", numeric: false, disablePadding: true, label: "End" },
-  { id: "name", numeric: false, disablePadding: true, label: "Name" },
-  { id: "age", numeric: true, disablePadding: true, label: "Age" },
-  { id: "mRN", numeric: false, disablePadding: true, label: "MRN" },
-  {
-    id: "procedure",
-    numeric: false,
-    disablePadding: true,
-    label: "Procedure",
-  },
-  { id: "location", numeric: false, disablePadding: true, label: "Location" },
-  { id: "status", numeric: false, disablePadding: true, label: "Status" },
-  { id: "notes", numeric: false, disablePadding: true, label: "Notes" },
-];
 
 function EnhancedTableHead(props) {
   const {
@@ -193,7 +111,8 @@ function EnhancedTableHead(props) {
           <TableCell
             key={headCell.id}
             align={"left"}
-            padding={"none"}
+            
+            padding={"5px"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
@@ -255,7 +174,7 @@ export default function EnhancedTable(props) {
   const [orderBy, setOrderBy] = React.useState("name");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -312,7 +231,7 @@ export default function EnhancedTable(props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <TableContainer className="table-responsive">
+        <TableContainer className="table-responsive tablescroll">
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
@@ -355,36 +274,36 @@ export default function EnhancedTable(props) {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="none"
+                        padding="5px"
                         align="left"
                       >
                         {row.date}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.start}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.end}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.name}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.age}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.mrn}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.procedure}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.location}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.status}
                       </TableCell>
-                      <TableCell align="left" padding="none">
+                      <TableCell align="left" padding="5px">
                         {row.notes}
                       </TableCell>
                     </TableRow>
@@ -399,7 +318,7 @@ export default function EnhancedTable(props) {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[10, 25 ,50]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}

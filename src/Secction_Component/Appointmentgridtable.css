@@ -1,11 +1,39 @@
 .MuiTableRow-root.Mui-selected{
-    background-color: blue !important;
+    background-color:#16aaff !important;
 }
 
 .MuiTableRow-root.Mui-selected, .MuiTableRow-root.Mui-selected:hover{
-    background-color: aquamarine !important;
+     background-color: rgba(0, 0, 0, 0.04) !important;
 }
 
 .MuiCheckbox-colorSecondary.Mui-checked{
-    color: black !important;
+    color: #16aaff !important;
 }
+.MuiTableHead-root {
+    background: #e9e9e9 !important;
+}
+.MuiCheckbox-colorSecondary.Mui-checked:hover {
+    background-color: transparent !important;
+}
+.MuiIconButton-colorSecondary:hover {
+    background-color: transparent !important;
+}
+.tablescroll{
+    max-height: 350px;
+}
+.makeStyles-paper-11 {
+    margin-bottom: 0px !important;
+}
+@media (min-width: 768px) and (orientation:portrait){
+    .tablescroll {
+        max-height: unset;
+        height: 77vh;
+    }
+}
+@media (max-width: 1024px) and (orientation:landscape){
+    .tablescroll {
+        max-height: unset;
+        height: 75vh;
+    }
+}
+

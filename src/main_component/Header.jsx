@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import PersonIcon from '@material-ui/icons/Person';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    padding:'0px',
+    
   },
   title: {
     display: 'none',
@@ -160,7 +162,7 @@ export default function PrimarySearchAppBar(props) {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          < PersonIcon />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -177,10 +179,10 @@ export default function PrimarySearchAppBar(props) {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon onClick={() => onhelloClick()} />
+            <MenuIcon  onClick={() => onhelloClick()} />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+           Jikan
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -215,7 +217,7 @@ export default function PrimarySearchAppBar(props) {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <PersonIcon />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebarnav.css";
-import AddCommentIcon from "@material-ui/icons/AddComment";
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import SingleBedIcon from '@material-ui/icons/SingleBed';
+import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+import PersonIcon from '@material-ui/icons/Person';
 
 const Sidebarnav = (props) => {
   const [sideNav, setSideNav] = useState({
-    allApp: "View All AppointMent",
-    rooms: "view Rooms",
-    cal: "View Calendar",
+    allApp: "Appointment",
+    cal: "Calendar",
+    rooms: "Rooms",
     profiles: "Profile",
   });
 
   const [sideIcon, setSideIcon] = useState({
-    allApp: <AddCommentIcon />,
-    rooms: <AddCommentIcon />,
-    cal: <AddCommentIcon />,
-    profiles: <AddCommentIcon />,
+    allApp: <ListAltIcon className="sidebarIcon"/>,
+    cal: <CalendarViewDayIcon className="sidebarIcon"/>,
+    rooms: <SingleBedIcon  className="sidebarIcon"/>,
+    profiles: <PersonIcon  className="sidebarIcon"/>,
   });
 
   const [style, setStyle] = useState({});
