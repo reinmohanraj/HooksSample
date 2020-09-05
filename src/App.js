@@ -1,11 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import Icon from '@material-ui/core/Icon';
-import Footer from './main_component/Footer';
-import Body from './main_component/Body';
-import Sampledata from './Secction_Component/sampledata';
+import Footer from './Layout/Footer';
+import Body from './assets/Pages/Appointment/Body';
 
 
 function App() {

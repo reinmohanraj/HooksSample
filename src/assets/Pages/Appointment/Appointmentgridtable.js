@@ -11,28 +11,23 @@ import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
-import "./Appointmentgridtable.css";
-import data from "../json/table.json";
+import "../../Css/Appointmentgridtable.css";
+import data from "../../../data/tabledata.json";
 
-console.log("rdata from json", data);
 
 const headCells = createHead(); 
 
 
 function createHead(){
-  // return { id: data.displayRows[0],numeric: false,disablePadding: true,label: data.displayRows[0],}
   return data.displayRows.map((elem) => {
+    // console.log("elem=======>", elem)
+    // let label = `${elem.charAt(0).toUpperCase()}${elem.slice(1)}`
     return { id: elem,numeric: false,disablePadding: true,label: elem,}
   })
 }
 
-function createData(date,start,end,name,age,mrn,procedure,location,status,notes,) {
-  return {date,start,end,name,age,mrn,procedure,location,status,notes, };
-}
-
-function createData1() {
+function createData() {
   let dataRows = [];
-
   for ( let i=0; i<data.row.length; i++){
     let dataObj = {};
     for (let j=0; j<data.displayRows.length; j++){
@@ -43,17 +38,11 @@ function createData1() {
       dataObj
     )
   }
-
-  // const dataRows = data.row.map((elem) => {
-  //   return data.displayRows.map((key) => {
-  //     return {[key]: elem[key]};
-  //   })
-  // })
   return dataRows;
 }
-createData1();
+createData();
 
-const rows = createData1();
+const rows = createData();
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -66,7 +55,7 @@ function descendingComparator(a, b, orderBy) {
 }
 
 function getComparator(order, orderBy) {
-  console.log(order, orderBy);
+  // console.log(order, orderBy);
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -261,7 +250,7 @@ export default function EnhancedTable(props) {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={index}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
@@ -270,42 +259,11 @@ export default function EnhancedTable(props) {
                           inputProps={{ "aria-labelledby": labelId }}
                         />
                       </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="5px"
-                        align="left"
-                      >
-                        {row.date}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.start}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.end}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.name}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.age}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.mrn}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.procedure}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.location}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.status}
-                      </TableCell>
-                      <TableCell align="left" padding="5px">
-                        {row.notes}
-                      </TableCell>
+                      {Object.keys(row).map((key) => {
+                        return <TableCell align="left" padding="5px">
+                                  {row[key]}
+                                </TableCell>
+                      })}
                     </TableRow>
                   );
                 })}

@@ -1,4 +1,16 @@
 {
+  "displayRows": [
+    "date",
+    "start",
+    "end",
+    "name",
+    "age",
+    "mrn",
+    "procedure",
+    "location",
+    "status",
+    "notes"
+  ],
   "row": [
     {
       "date": "Jun 18 2019",
@@ -15,7 +27,7 @@
       "lastname": "Burkhart",
       "middlename": "E",
       "dob": "1911-12-10",
-      "sex": "F",
+      "sex": "M",
       "addressline1": "3874Nutter street",
       "addresssline2": "4thfloor",
       "city": "overlandpk",
@@ -111,7 +123,7 @@
       "lastname": "Burkhart",
       "middlename": "E",
       "dob": "1911-12-10",
-      "sex": "F",
+      "sex": "M",
       "addressline1": "3874Nutter street",
       "addresssline2": "4thfloor",
       "city": "overlandpk",
@@ -135,7 +147,7 @@
       "lastname": "Burkhart",
       "middlename": "E",
       "dob": "1911-12-10",
-      "sex": "F",
+      "sex": "M",
       "addressline1": "3874Nutter street",
       "addresssline2": "4thfloor",
       "city": "overlandpk",
@@ -167,18 +179,5 @@
       "zipcode": "66210",
       "country": "usa"
     }
-  ],
-  "displayRows": [
-      "date",
-      "start",
-      "end",
-      "name",
-      "age",
-      "mrn",
-      "procedure",
-      "location",
-      "status",
-      "notes",
-      "firstname"
   ]
 }

@@ -2,7 +2,6 @@ import React from "react";
 import Input from '@material-ui/core/Input';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import './Popupmodal.css';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import GroupIcon from '@material-ui/icons/Group';
@@ -12,8 +11,7 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import EditIcon from '@material-ui/icons/Edit';
 import AcUnitIcon from '@material-ui/icons/AcUnit';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
-
-
+import "../../Css/popupmodal.css";
 
 const Procedurepopup = () => {
     return(

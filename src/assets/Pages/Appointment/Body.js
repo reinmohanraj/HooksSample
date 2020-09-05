@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Sidebarnav from "./Sidebarnav";
-import Appointment from "../Secction_Component/Appointment";
-import { Row } from "reactstrap";
-import Header from "../main_component/Header";
-import "./Body.css";
+import Sidebarnav from "./../../../Layout/Sidebar";
+import Appointment from "./Appointmentheader";
+import Header from "./../../../Layout/Header";
+import "./../../Css/Body.css";
 const Body = () => {
   const [sideToggle, setSideToggle] = useState(false);
 
