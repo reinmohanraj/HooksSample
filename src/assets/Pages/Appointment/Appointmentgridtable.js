@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import "../../Css/Appointmentgridtable.css";
 import data from "../../../data/tabledata.json";
 
@@ -19,7 +20,7 @@ const headCells = createHead();
 
 
 function createHead(){
-  return data.displayRows.map((elem) => {
+  return data.displayColumns.map((elem) => {
     // console.log("elem=======>", elem)
     // let label = `${elem.charAt(0).toUpperCase()}${elem.slice(1)}`
     return { id: elem,numeric: false,disablePadding: true,label: elem,}
@@ -30,8 +31,8 @@ function createData() {
   let dataRows = [];
   for ( let i=0; i<data.row.length; i++){
     let dataObj = {};
-    for (let j=0; j<data.displayRows.length; j++){
-      let key = data.displayRows[j];
+    for (let j=0; j<data.displayColumns.length; j++){
+      let key = data.displayColumns[j];
         Object.assign(dataObj, {[key]: data.row[i][key]})
     }
     dataRows.push(
@@ -160,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
 export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("name");
+  const [orderBy, setOrderBy] = React.useState("Name");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -173,7 +174,7 @@ export default function EnhancedTable(props) {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
+      const newSelecteds = rows.map((n) => n.MRN);
       console.log(newSelecteds.length)
       setSelected(newSelecteds);
       props.onSelect(newSelecteds.length)
@@ -240,13 +241,13 @@ export default function EnhancedTable(props) {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.MRN);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, row.MRN)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -260,8 +261,9 @@ export default function EnhancedTable(props) {
                         />
                       </TableCell>
                       {Object.keys(row).map((key) => {
+                        console.log("rows value", row[key])
                         return <TableCell align="left" padding="5px">
-                                  {row[key]}
+                                  {row[key] === "Notes" ? <AssignmentIcon /> : row[key] }
                                 </TableCell>
                       })}
                     </TableRow>

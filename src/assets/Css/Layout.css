@@ -91,3 +91,59 @@ color: #000;
     margin-left: -1px !important;
 }
 }
+/*Footer*/
+.Jikan_FooterContent{
+    border-top: #e9ecef solid 1px;
+}
+.Jikan_Footer{
+    z-index: 9;
+    height: 30px;
+    font-size: .7rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fafbfc;
+}
+.Jikan_FooterContentRight{
+    margin-left: auto;
+    display: flex;
+    float: right;
+    margin-top: .4rem; 
+    padding-right: 1rem;
+}
+/*Sidebar*/
+.Jikan_SidebarNavOuter {
+    position: fixed;
+    width: 14rem;
+    height: calc(100vh - 91px);
+    overflow-y: auto;
+    overflow-x:hidden;
+    box-shadow: 7px 0 60px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    background-color: white;
+  }
+  .Jikan_SidebarNavInner {
+    margin: 10px 0px;
+    list-style: none;
+  }
+  
+  .Jikan_SidebarNavInner ul {
+    list-style: none;
+      padding: 0px 0px 0px 13px;
+  }
+  .Jikan_SidebarNavInner ul li {
+    padding: 10px 0px;
+  }
+  .Jikan_SidebarNavInner ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+  .Jikan_SidebarNavInner ul li a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+  .sidebarIcon{
+    margin-right: 1rem;
+    position: relative;
+    top: 7px;
+  }

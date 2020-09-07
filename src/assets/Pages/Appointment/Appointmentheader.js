@@ -127,7 +127,7 @@ const Appointment = (props) => {
             <span>
               <AddIcon />
             </span>
-            <span>Add a Filter</span>
+            <span className="add-filter">Add a Filter</span>
           </button>
         </Grid>
       </Grid>

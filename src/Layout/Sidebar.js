@@ -3,7 +3,7 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import SingleBedIcon from '@material-ui/icons/SingleBed';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import PersonIcon from '@material-ui/icons/Person';
-import "../assets/Css/Sidebar.css";
+import "../assets/Css/Layout.css";
 
 const Sidebarnav = (props) => {
   const [sideNav, setSideNav] = useState({

@@ -41,7 +41,7 @@
     /* float: right; */
     line-height: 40px;
     margin-right: 15px;
-    /* font-size: 10px; */
+    font-size: 30px; 
   }
   
   .Appoint-header-left span:first-child {
@@ -54,6 +54,7 @@
   
   .Appoint-header-left span:nth-child(2) {
     padding: 5px;
+    
   }
   
   .Appoint-filter {
@@ -67,8 +68,8 @@
     font-size: 30px;
     border-radius: 20px;
     cursor: pointer;
-    left: -14px;
-    top: 10px;
+    left: -16px;
+    top: -14px;
   }
   
   .filter-button {
@@ -79,6 +80,11 @@
     color: darkgrey;
     margin: 8px 15px;
   }
+  .add-filter{
+    position: relative;
+    top: -6px;
+
+  }
   
   .filter-button span {
     padding-right: 5px;
@@ -87,4 +93,18 @@
   .Appoint-table {
     margin: 0px !important;
   }
-  
+  .ShowColumn{
+    padding: 0rem 1.5rem;
+  }
+  .closeShowcolumn{
+    position: relative;
+    top: 7px;
+    right: -21px;
+    font-size: 25px;
+  }
+  .Appoint-header-right span{
+    cursor: pointer;
+  }
+  .Appoint-header-right span:hover{
+    color:#05beda
+  }
