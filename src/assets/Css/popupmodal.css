@@ -2,10 +2,11 @@
     border-radius: 15px;
     background-color: #fff;
     position: absolute;
-    top:10rem;
+    top:00rem;
     left:10px;
     box-shadow: 0 0.66875rem 2.3875rem rgba(4,9,20,.03), 0 1.1375rem 1.60625rem rgba(4,9,20,.03), 
     0 0.45rem 0.73125rem rgba(4,9,20,.05), 0 0.325rem 0.3875rem rgba(4,9,20,.03);
+    z-index: 9;
 }
 .ProceduralModal_title{
     margin-left: 2.5rem;

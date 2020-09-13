@@ -93,13 +93,20 @@
   .Appoint-table {
     margin: 0px !important;
   }
+ .showColumndropdown .MuiMenu-paper{
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08); 
+ }
   .ShowColumn{
-    padding: 0rem 1.5rem;
+    padding: .2rem 1.5rem;
+    cursor: pointer;
+  }
+  .ShowColumn:focus{
+    outline:none !important;
   }
   .closeShowcolumn{
     position: relative;
     top: 7px;
-    right: -21px;
+    right: -17px;
     font-size: 25px;
   }
   .Appoint-header-right span{
@@ -107,4 +114,49 @@
   }
   .Appoint-header-right span:hover{
     color:#05beda
+  }
+  /*delete popup*/
+  .deletedropdown{
+    width: 21% !important;
+    position: absolute;
+    right: 45px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    right: 45px;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 9;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
+     0px 1px 1px 0px rgba(0,0,0,0.14), 
+    0px 1px 3px 0px rgba(0,0,0,0.12);
+  }
+
+  .deletedropdown h4{
+    margin: 0px;
+    text-align: start;
+    padding: 15px 15px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .deletedropdown span.closeicon{
+    position: absolute;
+    right: -1px;
+    top: 6px;
+
+  }
+
+  .deletedropdown .resonForDelete{
+    width: 90%;
+    padding: 7px 16px 15px 0px;
+  }
+  .deletedropdown .deleteSave{
+    margin: 10px;
+    height: 29px;  
+  }
+  .deletedropdown .deleteSave span{
+    margin: 0px;
+    font-size: 16px;
+    padding: 0px 17px;
   }

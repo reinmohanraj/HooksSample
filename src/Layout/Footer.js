@@ -7,7 +7,8 @@ const Footer = () => {
         <div className="Jikan_Footer">
             <div className="Jikan_FooterContent">
                 <div className="Jikan_FooterContentRight">
-                <div className="">©<span id="year">2020</span> Aithent. All rights reserved</div>
+                <div className=""><span id="year">2020</span> Aithent</div>
+                {/* <div className="">©<span id="year">2020</span> Aithent. All rights reserved</div> */}
                 </div>
             </div>
         </div>

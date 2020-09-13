@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -13,35 +13,42 @@ import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import "../../Css/Appointmentgridtable.css";
-// import data from "../../../data/tabledata.json";
-import { AppointmentContext } from "./Body";
+import data from "../../../data/tabledata.json";
 
-function createHead(data) {
-  const gridview = data.displayColumns;
-  return gridview.map((elem) => {
+
+
+const headCells = createHead(); 
+const rows = createData();
+
+function createHead(){
+  return data.displayColumns.map((elem) => {
     //console.log("elem=======>", elem)
     // let label = `${elem.charAt(0).toUpperCase()}${elem.slice(1)}`
-    return { id: elem, numeric: false, disablePadding: true, label: elem };
-  });
+    return { id: elem,numeric: false,disablePadding: true,label: elem,}
+  })
 }
 
-function createData(data) {
-  const gridview = data.displayColumns;
+
+function createData() {
   let dataRows = [];
-  if(data.row){
-    for (let i = 0; i < data.row.length; i++) {
-      let dataObj = {};
-      for (let j = 0; j < gridview.length; j++) {
-        let key = gridview[j];
-        Object.assign(dataObj, { [key]: data.row[i][key] });
-      }
-  
-      dataRows.push(dataObj);
+  for ( let i=0; i<data.row.length; i++){
+    let dataObj = {};
+    for (let j=0; j<data.displayColumns.length; j++){
+      let key = data.displayColumns[j];
+        Object.assign(dataObj, {[key]: data.row[i][key]})
+        console.log("row====>" , key);
     }
-    return dataRows;
+    
+    dataRows.push(
+      dataObj
+    )
   }
+  return dataRows;
+
 }
 // createData();
+
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -61,39 +68,33 @@ function getComparator(order, orderBy) {
 }
 
 function stableSort(array, comparator) {
-  if(array){
-    const stabilizedThis = array.map((el, index) => [el, index]);
+  const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
   return stabilizedThis.map((el) => el[0]);
-  }
 }
 
 function EnhancedTableHead(props) {
   const {
     classes,
-    onSelectAllClick,
+    onSelectAllClick, 
     order,
     orderBy,
     numSelected,
     rowCount,
     onRequestSort,
   } = props;
-  const [state, dispatch] = useContext(AppointmentContext);
-
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
-  const headCells = createHead(state);
-
   return (
-    <TableHead>
-      <TableRow>
-        <TableCell padding="checkbox">
+    <TableHead >
+      <TableRow >
+        <TableCell padding="checkbox" >
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
@@ -102,18 +103,15 @@ function EnhancedTableHead(props) {
           />
         </TableCell>
         {headCells.map((headCell) => (
-          <TableCell
-            className="tableHeaderstyle"
+          <TableCell className="tableHeaderstyle"
             key={headCell.id}
             align={"left"}
             padding={"5px"}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
+            sortDirection={orderBy === headCell.id ? order : false}>
             <TableSortLabel
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : "asc"}
-              onClick={createSortHandler(headCell.id)}
-            >
+              onClick={createSortHandler(headCell.id)}>
               {headCell.label}
               {orderBy === headCell.id ? (
                 <span className={classes.visuallyHidden}>
@@ -169,26 +167,25 @@ export default function EnhancedTable(props) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [state, dispatch] = useContext(AppointmentContext);
-
-  const rows = createData(state);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
+
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = rows.map((n) => n.MRN);
       // console.log(newSelecteds.length)
       setSelected(newSelecteds);
-      props.onSelect(newSelecteds.length);
+      props.onSelect(newSelecteds.length)
       return;
     }
     setSelected([]);
-    props.onSelect(0);
+    props.onSelect(0)
   };
+
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
@@ -206,19 +203,25 @@ export default function EnhancedTable(props) {
       );
     }
     setSelected(newSelected);
-    props.onSelect(newSelected);
+    props.onSelect(newSelected.length);
   };
+console.log("selected check", selected );
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
+ 
+  
+
   const emptyRows =
-    rows? rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage): 0;
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -236,10 +239,10 @@ export default function EnhancedTable(props) {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows? rows.length: 0}
+              rowCount={rows.length}
             />
             <TableBody>
-              {rows && stableSort(rows, getComparator(order, orderBy))
+              {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.MRN);
@@ -263,21 +266,15 @@ export default function EnhancedTable(props) {
                       </TableCell>
                       {Object.keys(row).map((key) => {
                         // console.log("rows value", row[key])
-                        return (
-                          <TableCell align="left" padding="5px">
-                            {row[key] === "Notes" ? (
-                              <AssignmentIcon />
-                            ) : (
-                              row[key]
-                            )}
-                          </TableCell>
-                        );
+                        return <TableCell align="left" padding="5px">
+                                  {row[key] === "Notes" ? <AssignmentIcon /> : row[key] }
+                                </TableCell>
                       })}
                     </TableRow>
                   );
                 })}
               {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
+                <TableRow style={{ height: (53) * emptyRows }}>
                   <TableCell colSpan={6} />
                 </TableRow>
               )}
@@ -285,9 +282,9 @@ export default function EnhancedTable(props) {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[10, 25, 50]}
+          rowsPerPageOptions={[10, 25 ,50]}
           component="div"
-          count={rows? rows.length: 0}
+          count={rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onChangePage={handleChangePage}

@@ -36,4 +36,6 @@
         height: 75vh;
     }
 }
-
+.tableHeaderstyle span{
+    font-weight: 600;
+}

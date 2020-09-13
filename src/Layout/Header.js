@@ -87,7 +87,7 @@ export default function PrimarySearchAppBar(props) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [isNavOpen, setIsNavOpen] = React.useState(props.isOpen);
 
-  const onhelloClick = () => {
+  const onhelloClick = () => { 
     setIsNavOpen(!isNavOpen);
     props.onsideClick(!isNavOpen);
   };

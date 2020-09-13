@@ -13,7 +13,7 @@ import AcUnitIcon from '@material-ui/icons/AcUnit';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import "../../Css/popupmodal.css";
 
-const Procedurepopup = () => {
+const Procedurepopup = (props) => {
     return(
         <div class="proceduremodal_outer">
         <div class="proceduremodal_Inner">

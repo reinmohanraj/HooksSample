@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const history = useHistory();
   const classes = useStyles();
-
   const onLoginClick = (e) => {
     e.preventDefault();
     history.push('/app');
@@ -44,13 +43,10 @@ export default function Login() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Jikan
         </Typography>
         <form className={classes.form} >
           <TextField
@@ -87,7 +83,7 @@ export default function Login() {
             className={classes.submit}
             onClick = {(e) => {onLoginClick(e)}}
           >
-            Sign In
+            Login
           </Button>
           <Grid container>
             <Grid item xs>
@@ -95,11 +91,6 @@ export default function Login() {
                 Forgot password?
               </Link>
             </Grid>
-            {/* <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid> */}
           </Grid>
         </form>
       </div>
