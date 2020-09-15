@@ -81,11 +81,12 @@ const Appointment = (props) => {
         return row;
       }
     })
-    console.log("rowsSelected", rowsSelected);
+    setIsSelected(0);
     dispatch({
       type: 'ROWS_SELECTED',
       payload: rowsSelected
     })
+    deleteRowselected()
   };
   const displayDeleteRowPoup = () => {
     return (
@@ -205,7 +206,7 @@ const Appointment = (props) => {
         </Grid>
       </Grid>
       <Grid className="Appoint-table">
-        <EnhancedTable
+        <EnhancedTable selectedRows= {isSelected}
           onSelect={(num) => {
             selectChange(num);
           }}

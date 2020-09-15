@@ -173,6 +173,13 @@ export default function EnhancedTable(props) {
 
   const rows = createData(state);
 
+  React.useEffect(() => {
+    if(!props.selectedRows){
+      setSelected([]);
+      props.onSelect([]);
+    }
+  }, [props.selectedRows])
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -183,7 +190,7 @@ export default function EnhancedTable(props) {
       const newSelecteds = rows.map((n) => n.MRN);
       // console.log(newSelecteds.length)
       setSelected(newSelecteds);
-      props.onSelect(newSelecteds.length);
+      props.onSelect(newSelecteds);
       return;
     }
     setSelected([]);
